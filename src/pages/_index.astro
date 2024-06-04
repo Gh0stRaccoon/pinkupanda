@@ -1,0 +1,158 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import manchaPinku from "../../public/img/manchapinku.png";
+import koreanos from "../../public/img/koreanos_pinkupanda 1.png"
+---
+
+<Layout title="PinkuPanda - Poleras con tu estilo">
+  <header
+    class="hero bg-gradient-to-b from-mustard-100 to-pastel-pink-100 text-pastel-pink-950"
+  >
+    <div
+      class="container max-w-screen-xl h-96 m-auto grid grid-cols-2 items-center justify-between"
+    >
+      <div class="hero-text grid gap-4">
+        <h1 class="text-5xl font-bold uppercase">
+          Personaliza con <span class="text-pastel-pink-600"
+            >Inteligencia Artificial</span
+          >
+        </h1>
+        <p class="text-xl">
+          Regístrate e impulsa tu creatividad. Obtén resultados únicos para tus
+          productos y logra plasmar tu personalidad en ellos.
+        </p>
+      </div>
+      <div class="hero-imgs relative flex justify-end h-full w-full">
+        <Image class="z-10" src={koreanos} alt="" />
+        <Image class="absolute bottom-1/4 -left-24" src={manchaPinku} alt="" />
+      </div>
+    </div>
+  </header>
+  <main class="max-w-screen-xl m-auto my-12 grid gap-12">
+    <section class="cards-container grid grid-cols-3 gap-8">
+      <div
+        class="h-96 overflow-hidden options-card rounded-xl font-bold text-wild-sand-50 relative bg-gradient-to-bl from-cyan-700 from-40% to-pastel-pink-200 to-70% p-4 group"
+      >
+        <h2 class="text-6xl">Crea</h2>
+        <p class="text-3xl">tu propio diseño</p>
+
+        <img
+          class="absolute bottom-0 right-0 h-full group-hover:scale-110 transition-transform duration-200"
+          src="./img/polerahipno.png"
+          alt=""
+        />
+      </div>
+      <div
+        class="h-96 overflow-hidden options-card rounded-xl font-bold text-wild-sand-50 relative bg-gradient-to-bl from-mustard-400 from-40% to-pastel-pink-400 to-70% p-4 group"
+      >
+        <h2 class="text-6xl">Poleras</h2>
+        <p class="text-3xl">100% algodón</p>
+        <img
+          class="absolute bottom-0 -right-12 h-4/5 group-hover:scale-110 transition-transform duration-200"
+          src="./img/koreanos_pinkupanda 1.png"
+          alt=""
+        />
+      </div>
+      <div
+        class="h-96 overflow-hidden options-card rounded-xl font-bold text-wild-sand-50 relative bg-gradient-to-bl from-pastel-pink-600 from-40% to-mustard-200 to-70% p-4 group"
+      >
+        <h2 class="text-6xl">Originales</h2>
+        <p class="text-3xl">y con estilo</p>
+        <img
+          class="absolute bottom-0 -right-0 h-3/4 group-hover:scale-110 transition-transform duration-200"
+          src="./img/occidentales_pinkupanda1.png"
+          alt=""
+        />
+      </div>
+    </section>
+    <section class="grid gap-6 text-balance">
+      <h2 class="text-4xl text-pastel-pink-900">Puedes confiar en nosotros</h2>
+      <div class="cards-container grid grid-cols-3 gap-8">
+        <div
+          class="value-card text-wild-sand-900 bg-mustard-400 rounded-xl p-4 relative"
+        >
+          <h3 class="text-2xl font-bold">Envío rápido y seguro</h3>
+          <p class="w-4/5">
+            Tenemos alianzas con los courries más confiables para que tu paquete
+            llegue rápido e integro a la puerta de tu casa.
+          </p>
+          <img
+            class="absolute -bottom-1 -right-7"
+            src="./img/panda_shipping.png"
+            alt=""
+          />
+        </div>
+        <div
+          class="value-card text-wild-sand-900 bg-pastel-pink-300 rounded-xl p-4 relative"
+        >
+          <h3 class="text-2xl font-bold">Pago seguro</h3>
+          <p class="w-4/5">
+            Paga de forma segura en nuestra plataforma gracias a nuestro
+            proveedor de pagos en línea.
+          </p>
+          <img
+            class="absolute -bottom-1 -right-7"
+            src="./img/panda_paid.png"
+            alt=""
+          />
+        </div>
+        <div
+          class="value-card text-wild-sand-900 bg-cyan-400 rounded-xl p-4 relative"
+        >
+          <h3 class="text-2xl font-bold">Experiencia</h3>
+          <p class="w-4/5">
+            Tu experiencia es muy importante para nosotros. No dudes en
+            contactarnos con tus dudas y sugerencias.
+          </p>
+          <img
+            class="absolute -bottom-1 -right-7"
+            src="./img/happyphone..png"
+            alt=""
+          />
+        </div>
+      </div>
+    </section>
+    <section class="grid gap-6 text-balance">
+      <h2 class="text-4xl text-pastel-pink-900">Nuestros nuevos diseños</h2>
+      <div class="cards-container grid grid-cols-3 gap-8">
+        <article class="font-bold text-2xl text-wild-sand-900 text-center">
+          <img src="./img/polerapinku.png" alt="" />
+          <h3>Polera estampilla Panda</h3>
+          <p class="text-xl">$25.000</p>
+        </article>
+        <article class="font-bold text-2xl text-wild-sand-900 text-center">
+          <img src="./img/poleragarza.png" alt="" />
+          <h3>Polera Garza Yagasuri</h3>
+          <p class="text-xl">$25.000</p>
+        </article>
+        <article class="font-bold text-2xl text-wild-sand-900 text-center">
+          <img src="./img/poleragengar.png" alt="" />
+          <h3>Polera Gengar artístico</h3>
+          <p class="text-xl">$25.000</p>
+        </article>
+      </div>
+    </section>
+    <section class="grid gap-6 text-balance">
+      <h3 class="text-4xl text-pastel-pink-900">Tazas más pedidas</h3>
+      <div class="cards-container grid grid-cols-3 gap-8">
+        <article class="font-bold text-2xl text-wild-sand-900 text-center">
+          <img src="./img/taza1.png" alt="" />
+          <h3>Taza motivo Día de la Madre</h3>
+          <p class="text-xl">$8.000</p>
+        </article>
+        <article class="font-bold text-2xl text-wild-sand-900 text-center">
+          <img src="./img/taza2.png" alt="" />
+          <h3>Taza motivo Panda kawaii</h3>
+          <p class="text-xl">$8.000</p>
+        </article>
+        <article class="font-bold text-2xl text-wild-sand-900 text-center">
+          <img src="./img/taza3.png" alt="" />
+          <h3>Taza motivo Pikachu origami</h3>
+          <p class="text-xl">$8.000</p>
+        </article>
+      </div>
+    </section>
+  </main>
+</Layout>
+<footer></footer>

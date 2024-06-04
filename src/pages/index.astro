@@ -1,94 +1,52 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import "@tabler/icons-webfont/dist/tabler-icons.min.css";
+import { Image } from "astro:assets";
 ---
 
-<Layout title="PinkuPanda - Poleras con tu estilo">
-	<header>
-		<div>
-			<h1>Personaliza con Inteligencia Artificial</h1>
-			<p>
-				Regístrate e impulsa tu creatividad. Obtén resultados únicos para tus
-				productos logrando plasmar tu personalidad en ellos.
-			</p>
-		</div>
-		<div>
-			<img src="./img/manchapinku.png" alt="" />
-			<img src="./img/koreanos_pinkupanda 1.png" alt="" />
-		</div>
-	</header>
-	<main>
-		<section>
-			<div>
-				<h2>Crea</h2>
-				<p>tu propio diseño</p>
-				<img src="./img/polerahipno.png" alt="" />
-			</div>
-			<div>
-				<h2>Poleras</h2>
-				<p>100% algodón</p>
-				<img src="./img/koreanos_pinkupanda 1.png" alt="" />
-			</div>
-			<div>
-				<h2>Originales</h2>
-				<p>y con estilo</p>
-				<img src="./img/occidentales_pinkupanda1.png" alt="" />
-			</div>
-		</section>
-		<section>
-			<h3>Puedes confiar en nosotros</h3>
-			<div></div><h4>Envío rápido y seguro</h4>
-			<p>
-				Tenemos alianzas con los courries más confiables para que tu paquete
-				llegue rápido e integro a la puerta de tu casa.
-			</p>
-			<img src="./img/panda_shipping.png" alt="" />
-		</section>
-		<div>
-			<h4>Pago seguro</h4>
-			<p>
-				Paga de forma segura en nuestra plataforma gracias a nuestro proveedor
-				de pagos en línea.
-			</p>
-			<img src="./img/panda_paid.png" alt="" />
-		</div>
-		<div>
-			<h4>Experiencia</h4>
-			<p>
-				Tu experiencia es muy importante para nosotros. No dudes en contactarnos
-				con tus dudas y sugerencias.
-			</p>
-			<img src="./img/happyphone..png" alt="" />
-		</div>
-	</main>
-	<section>
-		<h3>Nuestros nuevos diseños</h3>
-		<article>
-			<img src="./img/polerapinku.png" alt="" />
-			<h3>Polera estampilla Panda $25,000</h3>
-		</article>
-		<article>
-			<img src="./img/poleragarza.png" alt="" />
-			<h3>Polera Garza Yagasuri $25,000</h3>
-		</article>
-		<article>
-			<img src="./img/poleragengar.png" alt="" />
-			<h3>Polera Gengar artístico $25,000</h3>
-		</article>
-	</section>
-	<section>
-		<h3>Tazas más pedidas</h3>
-		<article>
-			<img src="./img/taza1.png" alt="" />
-			<h3>Taza motivo Día de la Madre $5,000</h3>
-		</article>
-		<article>
-			<img src="./img/taza2.png" alt="" />
-			<h3>Taza motivo Panda kawaii $5,000</h3>
-		</article>
-		<article>
-			<img src="./img/taza3.png" alt="" />
-			<h3>Taza motivo Pikachu origami $5,000</h3>
-		</article>
-	</section>
+<Layout title="PinkuPanda - En desarrollo">
+  <main class="min-h-[100dvh] content-center bg-gradient-to-r from-30% from-cyan-50 to-70% to-pastel-pink-100">
+    <section
+      class="bg-transparent backdrop-brightness-105 flex flex-col lg:flex-row w-4/5 max-w-6xl rounded-lg p-12 gap-4 lg:gap-12 mx-auto shadow-2xl shadow-pastel-pink-950/30 border border-pastel-pink-400/50 items-center"
+    >
+      <Image class="max-w-52 lg:max-w-96" src="/img/panda_hello.png" alt="" width="434" height="382"/>
+      <div>
+        <div class="text-center mb-4">
+          <span class="text-3xl">Bienvenido a</span>
+          <h1 class="text-6xl font-gorditas text-pastel-pink-500">
+            Pinku Panda
+          </h1>
+        </div>
+        <div class="text-xl">
+          <p>
+            Estamos construyendo nuestra plataforma web para que tengas la mejor
+            experiencia de compra.
+          </p>
+          <p>
+            Mientras tanto, puedes seguirnos y contactarnos en nuestras redes
+            sociales:
+          </p>
+        </div>
+        <div class="flex justify-center mb-4">
+          <a class="grid text-center" href="https://instagram.com/pinkupanda.cl" target="_blank">
+            <i class="ti ti-brand-instagram text-6xl text-pastel-pink-500"></i>
+            <span class="font-bold">Instagram</span>
+          </a>
+        </div>
+        <div class="text-xl">
+          <p>
+            ¡Podemos avisarte cuando todo esté listo! y así serás uno de los
+            primeros en acceder y ver el catálgo que tenemos para ti.
+          </p>
+          <form class="grid gap-4">
+            <label class="grid text-base gap-1">
+              Ingresa tu correo
+              <input class="border-wild-sand-200 h-11 rounded-md" type="email" />
+            </label>
+            <button class="bg-cyan-700 px-4 py-2 text-cyan-50 rounded-md w-full" type="submit">¡Quiero estar al tanto!</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
 </Layout>
-<footer></footer>
