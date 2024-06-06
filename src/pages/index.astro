@@ -2,14 +2,37 @@
 import Layout from "../layouts/Layout.astro";
 import "@tabler/icons-webfont/dist/tabler-icons.min.css";
 import { Image } from "astro:assets";
+import { turso } from "../db/turso";
+
+if (Astro.request.method === "POST") {
+  try {
+    console.log("POSTING!");
+    const data = await Astro.request.formData();
+    const email = data.get("email") as string;
+    const result = await turso.execute({
+      sql: "INSERT INTO collected_emails (ID, email) VALUES (null, ?)",
+      args: [email]
+    });
+  } catch {
+    console.log("ERROR");
+  }
+}
 ---
 
 <Layout title="PinkuPanda - En desarrollo">
-  <main class="min-h-[100dvh] content-center bg-gradient-to-r from-30% from-cyan-50 to-70% to-pastel-pink-100">
+  <main
+    class="min-h-[100dvh] content-center bg-gradient-to-r from-30% from-cyan-50 to-70% to-pastel-pink-100"
+  >
     <section
-      class="bg-transparent backdrop-brightness-105 flex flex-col lg:flex-row w-4/5 max-w-6xl rounded-lg p-12 gap-4 lg:gap-12 mx-auto shadow-2xl shadow-pastel-pink-950/30 border border-pastel-pink-400/50 items-center"
+      class="bg-transparent backdrop-brightness-105 flex flex-col lg:flex-row w-full max-w-6xl rounded-xl p-12 gap-4 lg:gap-12 mx-auto shadow-2xl shadow-pastel-pink-950/30 border border-pastel-pink-400/50 items-center"
     >
-      <Image class="max-w-52 lg:max-w-96" src="/img/panda_hello.png" alt="" width="434" height="382"/>
+      <Image
+        class="max-w-52 lg:max-w-96"
+        src="/img/panda_hello.png"
+        alt=""
+        width="434"
+        height="382"
+      />
       <div class="w-full">
         <div class="text-center mb-4">
           <span class="text-3xl">Bienvenido a</span>
@@ -28,7 +51,11 @@ import { Image } from "astro:assets";
           </p>
         </div>
         <div class="flex justify-center mb-4">
-          <a class="grid text-center" href="https://instagram.com/pinkupanda.cl" target="_blank">
+          <a
+            class="grid text-center"
+            href="https://instagram.com/pinkupanda.cl"
+            target="_blank"
+          >
             <i class="ti ti-brand-instagram text-6xl text-pastel-pink-500"></i>
             <span class="font-bold">Instagram</span>
           </a>
@@ -38,12 +65,19 @@ import { Image } from "astro:assets";
             ¡Podemos avisarte cuando todo esté listo! y así serás uno de los
             primeros en acceder y ver el catálgo que tenemos para ti.
           </p>
-          <form class="grid gap-4">
+          <form method="POST" class="grid gap-4">
             <label class="grid text-base gap-1">
               Ingresa tu correo
-              <input class="border-wild-sand-200 border h-11 rounded-md px-2 outline-pastel-pink-100" type="email" />
+              <input
+                class="border-wild-sand-200 border h-11 rounded-md px-2 outline-pastel-pink-100"
+                type="email"
+                name="email"
+              />
             </label>
-            <button class="bg-cyan-700 px-4 py-2 text-cyan-50 rounded-md w-full" type="submit">¡Quiero estar al tanto!</button>
+            <button
+              class="bg-cyan-700 px-4 py-2 text-cyan-50 rounded-md w-full"
+              type="submit">¡Quiero estar al tanto!</button
+            >
           </form>
         </div>
       </div>
