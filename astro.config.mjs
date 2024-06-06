@@ -8,10 +8,8 @@ import cloudflare from "@astrojs/cloudflare";
 export default defineConfig({
   output: "server",
   integrations: [react(), tailwind()],
-  adapter: cloudflare(),
-  image: {
-    service: {
-      entrypoint: "astro/assets/services/noop",
-    },
-  },
+  adapter: cloudflare({
+    mode: "directory",
+    functionPerRoute: true,
+  }),
 });
