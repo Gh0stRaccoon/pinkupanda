@@ -4,22 +4,22 @@ import "@tabler/icons-webfont/dist/tabler-icons.min.css";
 // import { Image } from "astro:assets";
 // import { turso } from "../db/turso";
 
-import { createClient } from "@libsql/client/web";
+// import { createClient } from "@libsql/client/web";
 
-export const turso = createClient({
-  url: Astro.locals.runtime.env.TURSO_DATABASE_URL,
-  authToken: Astro.locals.runtime.env.TURSO_AUTH_TOKEN,
-});
+// export const turso = createClient({
+//   url: Astro.locals.runtime.env.TURSO_DATABASE_URL,
+//   authToken: Astro.locals.runtime.env.TURSO_AUTH_TOKEN,
+// });
 
 if (Astro.request.method === "POST") {
   try {
     console.log("POSTING!");
     const data = await Astro.request.formData();
     const email = data.get("email") as string;
-    const result = await turso.execute({
-      sql: "INSERT INTO collected_emails (ID, email) VALUES (null, ?)",
-      args: [email],
-    });
+    // const result = await turso.execute({
+    //   sql: "INSERT INTO collected_emails (ID, email) VALUES (null, ?)",
+    //   args: [email],
+    // });
   } catch {
     console.log("ERROR");
   }
