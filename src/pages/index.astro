@@ -11,6 +11,8 @@ import "@tabler/icons-webfont/dist/tabler-icons.min.css";
 //   authToken: Astro.locals.runtime.env.TURSO_AUTH_TOKEN,
 // });
 
+const hi = Astro.locals.runtime.env.TURSO_DATABASE_URL
+
 if (Astro.request.method === "POST") {
   try {
     console.log("POSTING!");
@@ -36,7 +38,7 @@ if (Astro.request.method === "POST") {
       <img class="max-w-52 lg:max-w-96" src="/img/panda_hello.png" alt="" />
       <div class="w-full">
         <div class="text-center mb-4">
-          <span class="text-3xl">Bienvenido a</span>
+          <span class="text-3xl">Bienvenido a {hi}</span>
           <h1 class="text-6xl font-gorditas text-pastel-pink-500">
             Pinku Panda
           </h1>

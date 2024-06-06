@@ -9,7 +9,8 @@ export default defineConfig({
   output: "server",
   integrations: [react(), tailwind()],
   adapter: cloudflare({
-    mode: "directory",
-    functionPerRoute: true,
+    platformProxy: {
+      enabled: true,
+    },
   }),
 });
