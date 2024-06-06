@@ -4,12 +4,15 @@ import "@tabler/icons-webfont/dist/tabler-icons.min.css";
 
 import { createClient } from "@libsql/client/web";
 
-export const turso = createClient({
-  url: Astro.locals.runtime.env.TURSO_DATABASE_URL,
-  authToken: Astro.locals.runtime.env.TURSO_AUTH_TOKEN,
+const token = Astro.locals.runtime.env.TURSO_AUTH_TOKEN;
+const db_url = Astro.locals.runtime.env.TURSO_DATABASE_URL;
+
+const turso = createClient({
+  url: db_url,
+  authToken: token,
 });
 
-const hi = Astro.locals.runtime.env.TURSO_DATABASE_URL
+const hi = Astro.locals.runtime.env;
 
 if (Astro.request.method === "POST") {
   try {
@@ -80,6 +83,9 @@ if (Astro.request.method === "POST") {
               type="submit">¡Quiero estar al tanto!</button
             >
           </form>
+          <div class="hidden">
+            {JSON.stringify(hi)}
+          </div>
         </div>
       </div>
     </section>
