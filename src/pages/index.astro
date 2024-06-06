@@ -11,7 +11,7 @@ if (Astro.request.method === "POST") {
     const email = data.get("email") as string;
     const result = await turso.execute({
       sql: "INSERT INTO collected_emails (ID, email) VALUES (null, ?)",
-      args: [email]
+      args: [email],
     });
   } catch {
     console.log("ERROR");
@@ -26,13 +26,7 @@ if (Astro.request.method === "POST") {
     <section
       class="bg-transparent backdrop-brightness-105 flex flex-col lg:flex-row w-full max-w-6xl rounded-xl p-12 gap-4 lg:gap-12 mx-auto shadow-2xl shadow-pastel-pink-950/30 border border-pastel-pink-400/50 items-center"
     >
-      <Image
-        class="max-w-52 lg:max-w-96"
-        src="/img/panda_hello.png"
-        alt=""
-        width="434"
-        height="382"
-      />
+      <img class="max-w-52 lg:max-w-96" src="/img/panda_hello.png" alt="" />
       <div class="w-full">
         <div class="text-center mb-4">
           <span class="text-3xl">Bienvenido a</span>

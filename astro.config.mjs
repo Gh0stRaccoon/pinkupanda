@@ -6,7 +6,12 @@ import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
-  output: 'server',
+  output: "server",
   integrations: [react(), tailwind()],
-  adapter: cloudflare()
+  adapter: cloudflare(),
+  image: {
+    service: {
+      entrypoint: "astro/assets/services/noop",
+    },
+  },
 });

@@ -1,8 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Image } from "astro:assets";
+import { img } from "astro:assets";
 import manchaPinku from "../../public/img/manchapinku.png";
-import koreanos from "../../public/img/koreanos_pinkupanda 1.png"
+import koreanos from "../../public/img/koreanos_pinkupanda 1.png";
 ---
 
 <Layout title="PinkuPanda - Poleras con tu estilo">
@@ -24,8 +24,8 @@ import koreanos from "../../public/img/koreanos_pinkupanda 1.png"
         </p>
       </div>
       <div class="hero-imgs relative flex justify-end h-full w-full">
-        <Image class="z-10" src={koreanos} alt="" />
-        <Image class="absolute bottom-1/4 -left-24" src={manchaPinku} alt="" />
+        <img class="z-10" src="/img/koreanos_pinkupanda 1.png" alt="" />
+        <img class="absolute bottom-1/4 -left-24" src="/img/koreanos_pinkupanda 1.png" alt="" />
       </div>
     </div>
   </header>
