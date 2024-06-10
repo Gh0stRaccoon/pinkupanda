@@ -7,6 +7,8 @@ export const POST: APIRoute = async ({ locals, request }) => {
   const data = await request.json();
   const email = data.email;
 
+  console.log("EXCECUTING!")
+
   try {
     const tursoClient = createClient({
       url: db_url,
