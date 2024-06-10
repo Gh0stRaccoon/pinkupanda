@@ -2,21 +2,13 @@
 import Layout from "../layouts/Layout.astro";
 import "@tabler/icons-webfont/dist/tabler-icons.min.css";
 
-if (Astro.request.method === "POST") {
-  const formData = await Astro.request.formData();
-  const email = formData.get("email");
+const email = Astro.url.searchParams.get("email");
+const referer = Astro.request.headers?.get("referer");
+const hasReferer = referer !== null;
+const refererURL = hasReferer && new URL(referer);
 
-  const response = await fetch("http://localhost:4321/api/release/sendForm", {
-    method: "POST",
-    body: JSON.stringify({
-      email,
-    }),
-  });
-  const body = await response.json();
-
-  if (body.preregister == "ok") {
-    return Astro.redirect(`/preregister?email=${body.email}`);
-  }
+if (refererURL?.pathname !== "/") {
+  return Astro.redirect("/");
 }
 ---
 
@@ -37,8 +29,11 @@ if (Astro.request.method === "POST") {
         </div>
         <div class="text-xl">
           <p>
-            Estamos construyendo nuestra plataforma web para que tengas la mejor
-            experiencia de compra.
+            ¡Gracias, tu correo <b>{email}</b>, ha sido registrado con éxito!
+          </p>
+          <p>
+            Cuando tengamos nuestra plataforma en funcionamiento te avisaremos
+            para que puedas ver todo lo que tenemos para ti.
           </p>
           <p>
             Mientras tanto, puedes seguirnos y contactarnos en nuestras redes
@@ -57,25 +52,10 @@ if (Astro.request.method === "POST") {
         </div>
         <div class="text-xl">
           <p>
-            ¡Podemos avisarte cuando todo esté listo! y así serás uno de los
-            primeros en acceder y ver el catálgo que tenemos para ti.
+            Estaremos mostrando nuestros diseños para que puedas elegir y
+            comprar contactando directo con nosotros.
           </p>
-          <form method="POST" class="grid gap-4">
-            <label class="grid text-base gap-1">
-              Ingresa tu correo
-              <input
-                class="border-wild-sand-200 border h-11 rounded-md px-2 outline-pastel-pink-100 w-full"
-                type="email"
-                name="email"
-              />
-            </label>
-            <button
-              class="bg-cyan-700 px-4 py-2 text-cyan-50 rounded-md w-full"
-              type="submit"
-            >
-              ¡Quiero estar al tanto!
-            </button>
-          </form>
+          <p class="text-center">¡Nos vemos pronto!</p>
         </div>
       </div>
     </section>
