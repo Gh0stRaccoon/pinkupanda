@@ -12,7 +12,7 @@ if (Astro.request.method === "POST") {
       email,
     }),
   });
-  console.log(response);
+  console.log(JSON.stringify(response));
   const body = await response.json();
 
   if (body.preregister == "ok") {
