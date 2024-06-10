@@ -6,17 +6,23 @@ if (Astro.request.method === "POST") {
   const formData = await Astro.request.formData();
   const email = formData.get("email");
 
-  const response = await fetch("http://localhost:4321/api/release/sendForm", {
-    method: "POST",
-    body: JSON.stringify({
-      email,
-    }),
-  });
-  console.log(JSON.stringify(response));
-  const body = await response.json();
+  try {
+    const response = await fetch("http://localhost:4321/api/release/sendForm", {
+      method: "POST",
+      body: JSON.stringify({
+        email,
+      }),
+    });
+    console.log(JSON.stringify(response));
+    const body = await response.json();
 
-  if (body.preregister == "ok") {
-    return Astro.redirect(`/preregister?email=${body.email}`);
+    if (body.preregister == "ok") {
+      return Astro.redirect(`/preregister?email=${body.email}`);
+    } else {
+      console.log({ preregister: body.preregister, error: body.error });
+    }
+  } catch (error) {
+    console.error(error);
   }
 }
 ---
